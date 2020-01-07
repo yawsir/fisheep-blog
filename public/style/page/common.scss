@@ -1,0 +1,19 @@
+body{
+    background-color: #f6f6f6;
+}
+.content {
+    margin-top: 3.5rem;
+    .content-left {
+        background: #fff;
+        min-height: 40vh;
+        border-radius: 1rem;
+        padding: .5rem;
+    }
+
+    .content-right {
+        background: #fff;
+        min-height: 40vh;
+        margin-left: .6rem;
+        border-radius: 1rem;
+    }
+}

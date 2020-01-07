@@ -1,0 +1,49 @@
+.mycard {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 0 1.5rem 0;
+    .card-title {
+        color: #1890FF;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .card-date {
+        display: inline-block;
+        .date {
+            display: inline-block;
+            margin: 0 .3rem;
+        }
+    }
+
+    .invisible {
+        // visibility: hidden;
+        display: none
+    }
+
+    .card-tags {
+        display: inline-block;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .card-text {
+        text-indent: 2em;
+        margin: .5rem 0;
+    }
+
+    .detail-btn {
+        display: block;
+        position: absolute;
+        bottom: 0rem;
+        right: 0rem;
+        color: rgb(33, 147, 253);
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

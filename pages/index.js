@@ -1,88 +1,56 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Head from 'next/head'
-import Nav from '../components/nav'
-
-const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-
-    <Nav />
-
-    <div className="hero">
-      <h1 className="title">Welcome to Next.js!</h1>
-      <p className="description">
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
-
-      <div className="row">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
-        </a>
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Next.js Learn &rarr;</h3>
-          <p>Learn about Next.js by following an interactive tutorial!</p>
-        </a>
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Find other example boilerplates on the Next.js GitHub.</p>
-        </a>
-      </div>
+import {Header, MyCard, Author} from '../components'
+import {Row, Col, List} from 'antd'
+import axios from 'axios'
+import {api} from '../blog.config'
+const Home = ({home_page}) => {
+  const [articleList,setArticleList] = useState(home_page)
+  return (
+    <div>
+      <Head>
+        <title>iradw博客</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Header selectdKey='home'></Header>
+      <Row className="content" type="flex" justify="center" >
+          <Col className="content-left" xs={24} sm={24} md={16} lg={18} xl={15}>
+            <List  header="最新文章">
+              {
+                articleList.map(item => (
+                  <List.Item key={item.article_id}>
+                     <MyCard
+                      id={item.article_id}
+                      title={item.article_title}
+                      date={item.article_date}
+                      tagList={item.tags}
+                      text={item.article_introduce}
+                      atTop={false}
+                     ></MyCard>
+                  </List.Item>
+                ))
+              }
+            </List>
+          </Col>
+          <Col className="content-right" xs={0} sm={0} md={7} lg={5} xl={5}>
+            <Author></Author>
+          </Col>
+      </Row>
     </div>
+  )
+}
 
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
+Home.getInitialProps = async () => {
+  const p = new Promise((resolve) => {
+    axios(`${api}/blog/getHomeArticles`)
+    .then(
+        res => {
+          // console.log(res)
+          resolve(res.data)
       }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
-)
+    )
+  })
+  return await p
+}
 
 export default Home

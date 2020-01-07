@@ -1,0 +1,29 @@
+.author {
+    width: 100%;
+    padding: 2rem 2rem 0 2rem;
+
+    .avatar {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .author-intro {
+        margin: 1em 0;
+        text-indent: 2em;
+        font-size: 12px;
+    }
+    .social {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .icon {
+            font-size: 20px;
+        }
+    }
+
+    a {
+        color: black;
+    }
+}

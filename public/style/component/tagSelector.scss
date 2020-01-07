@@ -1,0 +1,19 @@
+.tag-selector {
+    width: 100%;
+    padding: 1rem .5rem;
+    h5 {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    p {
+        margin: .5rem 0;
+    }
+
+    .tag-list {
+        min-height: 3rem;
+        .tag-item {
+            margin: .2rem .2rem;
+        }
+    }
+}
