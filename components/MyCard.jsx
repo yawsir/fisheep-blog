@@ -4,7 +4,7 @@ import Link from 'next/link'
 // import withRouter from 'next/router'
 import '../public/style/component/myCard.scss'
 import PropTypes from 'prop-types'
-export default function MyCard({title, date, tagList, text, image, atTop, id}) {
+export default function MyCard({title, date, tagList, text, atTop, id}) {
     return (
         <div className="mycard">
             <h4 className="card-title"><Link href={`/Detail?article_id=${id}`}><a>{title}</a></Link></h4>
@@ -17,8 +17,7 @@ export default function MyCard({title, date, tagList, text, image, atTop, id}) {
                     tagList.map( (item, index) => <Tag color={item.tag_color} key={index}>{item.tag_name}</Tag>)
                 }
             </div>
-            <img src={image} alt="" className={`${image?'':'invisible'}`}/>
-            <p className="card-text" className={`${text?'':'invisible'}`}>{text}</p>
+            <div className="card-text" className={`${text?'':'invisible'}`} dangerouslySetInnerHTML={{__html: text}}></div>
             <span className="detail-btn"><Link href={`/Detail?article_id=${id}`}><a>查看全文</a></Link></span>
         </div>
     )
