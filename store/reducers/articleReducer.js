@@ -33,22 +33,6 @@ const articleReducer = (state, action) => {
 
 const initState = {
     tagList: [
-        {
-            tag_name: 'HTML', 
-            tag_color: 'orange',
-            tag_id: 1
-        }, 
-        {
-            tag_name: 'CSS', 
-            tag_color: 'green',
-            tag_id: 2
-        }, 
-        {
-            tag_name: 'JavaScript', 
-            tag_color: 'yellow',
-            tag_id: 3
-        }, 
-          
     ],
     selectedTagsList: [
         

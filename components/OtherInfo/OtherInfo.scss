@@ -1,0 +1,28 @@
+.other-info {
+    width: 100%;
+    padding:0 2rem 2rem;
+    box-sizing: border-box;
+    min-height: 10vh;
+    max-height: 40vh;
+    overflow-y: auto;
+    .other-info-title {
+        font-size: 16px;
+        text-align: center;
+    }
+    .info-list {
+        .info-item {
+            padding: .5em 0;
+            border-bottom: 1px dashed #a4b0beaa;
+            .item-date {
+                color: #70a1ff;
+                margin: 0;
+            }
+
+            .item-content {
+                color: #1e90ff;
+                font-size: 16px;
+                margin: 0;
+            }
+        }
+    }
+}

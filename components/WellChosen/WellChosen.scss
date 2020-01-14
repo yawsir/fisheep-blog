@@ -1,0 +1,27 @@
+.wellchosen {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0rem 2rem;
+    .wellchosen-title {
+        text-align: center;
+        border-bottom: 1px solid #cdcdcd;
+    }
+
+    .articles-list {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+        list-style: none;
+        font-size: 14px;
+    }
+    .article-item {
+        margin: .5em auto;
+    }
+
+    .origin-link {
+        display: block;
+        text-align: right;
+        padding-right: 1em;
+    }
+
+}

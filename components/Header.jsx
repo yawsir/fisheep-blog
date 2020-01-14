@@ -32,7 +32,7 @@ export default function Header({selectdKey}) {
     return (
         <div className="header">
             <Row type="flex" justify="center" align="middle">
-                <Col span={6} className="logo">iradw的博客</Col>
+                <Col span={6} className="logo">Fisheep的博客</Col>
                 <Col span={18} className="menu"> 
                     <Menu mode="horizontal" selectedKeys={[selectdKey]} onClick={switchRoute}>
                         <Menu.Item key="home"><Icon type="home"/>首页</Menu.Item>
