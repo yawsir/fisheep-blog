@@ -1,0 +1,67 @@
+.progress-container {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+}
+.circle-progress {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+}
+.pr-content {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background: orange;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 50%;
+    z-index: 5;
+}
+.bg1 {
+    position: absolute;
+    left: 70px;
+    top: 0;
+    width: 70px;
+    height: 140px;
+    border-radius: 0 140px 140px 0;
+    background: #000;
+    z-index: 1;
+}
+.bg2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 140px;
+    border-radius: 140px 0 0 140px;
+    background: #000;
+    z-index: 3
+}
+.pr1 {
+    position: absolute;
+    left: 70px;
+    top: 0;
+    width: 70px;
+    height: 140px;
+    border-radius: 0 140px 140px 0;
+    background: #f00;
+    z-index: 2;
+    transform: rotate(-180deg);   //-180~0为进度条的0~50%
+    transform-origin: 0px 70px
+}
+.pr2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 140px;
+    border-radius: 140px 0 0 140px;
+    background: #f00;
+    z-index: 4;
+    transform: rotate(-180deg);   //-180~0为进度条的50%~100% 当pr1旋转为0时 pr2的visibility变为visible
+    transform-origin: 70px 70px;
+}

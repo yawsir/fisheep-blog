@@ -14,7 +14,10 @@ const OtherInfo = () => {
         const dateStr = month + day
         axios.get(`http://api.tianapi.com/txapi/lishi/index?key=${key}&date=${dateStr}`)
         .then(res => {
-            setInfoList(res.data.newslist)
+            if (res.data.newslist){
+                setInfoList(res.data.newslist)
+            }
+            
         })
         .catch(err => {
             console.log(err)

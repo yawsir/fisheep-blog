@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Head from 'next/head'
 import {Header, Author} from '../components'
 import {Row, Col, Icon, Tag, Affix} from 'antd'
 import axios from 'axios'
-import {formatDate} from '../utils'
+import {formatDate, throttle, rfa} from '../utils'
 import {api} from '../blog.config'
 import marked from 'marked'
 import hljs from 'highlight.js'
@@ -32,7 +32,27 @@ export default function Detail({article}) {
     })
     const markdown = article.article_content
     let html = marked(markdown)
-
+    const [currentPr, setCurrentPr] = useState(0)
+    const [scrollBottom, setScrollBottom] = useState(0)
+    //初始化
+    const init = () => {
+        const bottom = document.body.scrollHeight - document.documentElement.clientHeight
+        setScrollBottom(bottom)
+    }
+    const listenScroll = () => {
+        addEventListener('scroll', rfa(() => {
+            const top = document.documentElement.scrollTop || document.body.scrollTop;
+            setCurrentPr(top)
+        }, 200))
+    }
+    const removeListener = () => {
+        window.onscroll = null
+    }
+    useEffect(() => {
+        return () => {
+            removeListener()
+        }
+    }, [])
     
 
     return (
@@ -65,6 +85,7 @@ export default function Detail({article}) {
                     <Affix>
                         {tocify && tocify.render()}
                     </Affix>
+                    
                 </Col>
             </Row>
 
