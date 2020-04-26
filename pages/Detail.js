@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import Head from 'next/head'
 import {Header, Author} from '../components'
-import {Row, Col, Icon, Tag, Affix} from 'antd'
+import { CalendarOutlined } from '@ant-design/icons';
+import { Row, Col, Tag, Affix } from 'antd';
 import axios from 'axios'
-import {formatDate, throttle, rfa} from '../utils'
+import {formatDate, rfa} from '../utils'
 import {api} from '../blog.config'
 import marked from 'marked'
 import hljs from 'highlight.js'
@@ -67,7 +68,7 @@ export default function Detail({article}) {
                     <h2 className="detail-title">{article.article_title}</h2>
                     <div className="detail-props">
                         <p className="detail-date">
-                            <Icon type="calendar" /><span className="date">{formatDate(article.article_date)}</span>
+                            <CalendarOutlined /><span className="date">{formatDate(article.article_date)}</span>
                         </p>
                         <div className="detail-tags">
                             {
@@ -90,7 +91,7 @@ export default function Detail({article}) {
             </Row>
 
         </div>
-    )
+    );
 }
 
 Detail.getInitialProps = async (context) => {

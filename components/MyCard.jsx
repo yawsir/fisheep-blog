@@ -1,5 +1,6 @@
 import React from 'react'
-import {Icon, Tag} from 'antd'
+import { CalendarOutlined } from '@ant-design/icons';
+import { Tag } from 'antd';
 import Link from 'next/link'
 // import withRouter from 'next/router'
 import '../public/style/component/myCard.scss'
@@ -10,7 +11,7 @@ export default function MyCard({title, date, tagList, text, atTop, id}) {
             <h4 className="card-title"><Link href={`/Detail?article_id=${id}`}><a>{title}</a></Link></h4>
             <p className="card-date">
                 <Tag className={atTop?'':'invisible'} color="red">置顶</Tag>
-                <Icon type="calendar" /><span className="date">{date}</span>
+                <CalendarOutlined /><span className="date">{date}</span>
             </p>
             <div className="card-tags">
                 {
@@ -20,7 +21,7 @@ export default function MyCard({title, date, tagList, text, atTop, id}) {
             <div className="card-text" className={`${text?'':'invisible'}`} dangerouslySetInnerHTML={{__html: text}}></div>
             <span className="detail-btn"><Link href={`/Detail?article_id=${id}`}><a>查看全文</a></Link></span>
         </div>
-    )
+    );
 }
 
 MyCard.propTypes = {
