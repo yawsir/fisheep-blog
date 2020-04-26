@@ -22,7 +22,7 @@ const UtilList = ({utilCateName, list}) => {
             <h4 className="util-cate">{utilCateName}</h4>
             <Row className="util-item-list">
                 {
-                    !!list && list.map( item => <UtilItem key={item.utilCateId} {...item}></UtilItem>)
+                    !!list && list.map( item => <UtilItem key={item.utilId} {...item}></UtilItem>)
                 }
                 
             </Row>

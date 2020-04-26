@@ -4,41 +4,15 @@ import Head from 'next/head'
 import {Row, Col} from 'antd'
 import '../public/style/page/usefull.scss'
 import UtilList from '../components/UtilList'
+import axios from 'axios'
+import {api} from '../blog.config'
 
-const mockData = [
-    {
-        utilCateId: '1',
-        utilCateName: '前端框架',
-        list: [ 
-            {
-                utilId: '11',
-                utilLogo: 'https://cn.vuejs.org/images/logo.png',
-                utilSite: 'https://react.docschina.org/',
-                utilName: '渐进式框架Vue'
-            },
-            {
-                utilId: '12',
-                utilLogo: 'https://www.runoob.com/wp-content/uploads/2016/02/react.png',
-                utilSite: 'https://react.docschina.org/',
-                utilName: '扩展性超强的React'
-            },
-        ]
-    },
-    {
-        utilCateId: '2',
-        utilCateName: '图标字体',
-    }
-]
-
-
-const Usefull = () => {
-
-    const [usefullUtilsList] = useState(mockData)
-
+const Usefull = ({utils}) => {
+    const [usefullUtilsList] = useState(utils)
     return (
         <div className="usefull">
             <Head>
-                <title>{123}</title>
+                <title>常用工具</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header selectdKey="usefull"></Header>
@@ -51,6 +25,23 @@ const Usefull = () => {
             </Row>
         </div>
     )
+}
+
+Usefull.getInitialProps = async (context) => {
+    return await new Promise( (resolve, reject) => {
+        axios.get(`${api}/blog/getUtilsList`)
+        .then(
+            res => {
+                console.log(res)
+                resolve(res.data)
+            }
+        )
+        .catch(
+            err => {
+                reject(err)
+            }
+        )
+    })
 }
 
 export default Usefull

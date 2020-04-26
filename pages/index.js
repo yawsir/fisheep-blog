@@ -44,7 +44,7 @@ const Home = ({home_page}) => {
       </Head>
       <Header selectdKey='home'></Header>
       <Row className="content" type="flex" justify="center" >
-          <Col className="content-left" xs={24} sm={24} md={16} lg={18} xl={20}>
+          <Col className="content-left" xs={24} sm={24} md={16} lg={18} xl={15}>
             <List  header="精选文章">
               {
                 home_page.map(item => (
