@@ -32,7 +32,6 @@ Usefull.getInitialProps = async (context) => {
         axios.get(`${api}/blog/getUtilsList`)
         .then(
             res => {
-                console.log(res)
                 resolve(res.data)
             }
         )
